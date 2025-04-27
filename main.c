@@ -30,7 +30,8 @@
 #define KN_SW 4
 #define KN_DT 3
 #define KN_CLK 2
-#define KN_INIT() (KN_PORT |= (1<<KN_CLK)|(1<<KN_DT)|(1<<KN_SW))
+#define BANK_DZWONKOW 5
+#define KN_INIT() (KN_PORT |= (1<<KN_CLK)|(1<<KN_DT)|(1<<KN_SW)|(1<<BANK_DZWONKOW))
 
 #define MENU_SET_AUTO 0
 #define MENU_SET_MAN 1
@@ -59,6 +60,17 @@ volatile int8_t rfr, dzwonek_recznie;
 struct DZWONKI {uint8_t h; uint8_t m;};
 
 struct DZWONKI dzwonki[32];
+
+uint8_t bank_dzwonkow;
+
+void odczyt ()
+{
+	eeprom_read_block (dzwonki, (void *)0, sizeof (dzwonki));
+	eeprom_read_block (&mode_auto, (void *)64, 1);
+	eeprom_read_block (&dzwonek_czas, (void *)65, 1);
+	eeprom_read_block (&lcd_kontrast, (void *)66, 1);
+}
+
 
 void ustaw_kontrast ()
 {
@@ -461,14 +473,6 @@ ISR (TIMER2_OVF_vect)
 }
 #endif
 
-void odczyt ()
-{
-	eeprom_read_block (dzwonki, (void *)0, sizeof (dzwonki));
-	eeprom_read_block (&mode_auto, (void *)64, 1);
-	eeprom_read_block (&dzwonek_czas, (void *)65, 1);
-	eeprom_read_block (&lcd_kontrast, (void *)66, 1);
-}
-
 int main(void)
 {
 	TCCR0B |= (1<<CS01)|(1<<CS00);   //Preskaler = 1024
@@ -489,6 +493,8 @@ int main(void)
 	stdio_tm1637_init ();
 	i2c_init ();
 	KN_INIT();
+
+	bank_dzwonkow = 0;
 
 	odczyt();//odczyt pamieci eeprom
 
