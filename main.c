@@ -7,8 +7,8 @@
 #include "i2c_master.h"
 #include "uart.h"
 
-//#define EMU
-#define I2C
+#define EMU
+//#define I2C
 #define MAX_MENU_INI 60
 #define MIN_MENU_INI 6
 
@@ -45,8 +45,6 @@
 #define MENU_CHG 12
 #define MENU_ERASE 14
 #define MENU_SET_MAX 14
-
-#define EMU
 
 volatile int8_t kn_val, kn_press;
 volatile int8_t rtc_d, rtc_h, rtc_m, rtc_s;
