@@ -190,7 +190,7 @@ void main_loop ()
 
 	static int8_t menu = 0, menu_pos = 1, param = 0, param2 = 0;
 
-	static int8_t menu_del = 0, rtc_s_hist;
+	static int8_t menu_del = MIN_MENU_INI, rtc_s_hist;
 
 	if (menu_del == 1) {
 		menu = 0;
@@ -335,7 +335,8 @@ void main_loop ()
 			if (menu_pos > MENU_SET_MAX) menu_pos = MENU_SET_MAX;
 			else if (menu_pos < 0) menu_pos = 0;
 		} else if (menu == 2) {
-			menu_del = MAX_MENU_INI;
+			//menu_del = MAX_MENU_INI;
+			menu_del = 240;//27.11.2025
 			if (menu_pos == MENU_SET_AUTO) { //rodzaj automatyki
 				param += kn_val;
 				if (param > 2) param = 2;
@@ -374,7 +375,8 @@ void main_loop ()
 				if (param > 7) param = 1;
 				else if (param < 1) param = 7;
 			} else if (menu_pos == MENU_VIEW || menu_pos == MENU_ERASE || menu_pos == MENU_CHG) {
-				menu_del = MIN_MENU_INI;
+				//menu_del = MIN_MENU_INI;
+				menu_del = 240;//27.11.2025
 				param += kn_val;
 				if (dzwonki[param].h == 0xff) param--;
 				if (param < 0) param = 0;
