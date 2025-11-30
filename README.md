@@ -121,7 +121,7 @@
 		<td>
 		</td>
 	</tr>
-		<tr>
+	<tr>
 		<td rowspan="3">
 			<p><b>Fb</b></p>
 		</td>
@@ -142,7 +142,6 @@
 			<p>Fb:02 skrócone (35 min.)</p>
 		</td>
 	</tr>
-
 	<tr>
 		<td>
 			<p><b>FC</b></p>
@@ -164,6 +163,7 @@
 		</td>
 	</tr>
 </table>
+
 <h2 style="text-align: center">Programowanie listy dzwonków przy pomocy komputera</h2>
 <ol>
 <li>Sterownik podłączyć do komputera przy pomocy przewodu USB mini.</li>
