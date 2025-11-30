@@ -7,9 +7,10 @@
 #include "i2c_master.h"
 #include "uart.h"
 
-#define EMU
+//#define EMU
 #define I2C
-#define MAX_MENU_INI 60
+
+#define MAX_MENU_INI 70
 #define MIN_MENU_INI 6
 
 #define ARD_PCF8583 0xd0
@@ -208,13 +209,12 @@ void main_loop ()
 
 	if (kn_press) {
 		kn_press = 0;
+		menu_del = MIN_MENU_INI;
 		if (menu == 0) {
 			menu = 1;
-			menu_del = MIN_MENU_INI;
 			//menu_pos = 0;
 		} else if (menu == 1) {
 			menu = 2;
-			menu_del = MIN_MENU_INI;
 			if (menu_pos == MENU_SET_AUTO) {
 				param = mode_auto;
 			} else if (menu_pos == MENU_SET_MAN) {
@@ -374,6 +374,7 @@ void main_loop ()
 					if (param > 0x23) param = 0;
 				}
 			} else if (menu_pos == MENU_SET_MIN) {//minuty
+				menu_del = MAX_MENU_INI;
 				if (kn_val < 0) {
 					param -= ((param & 0x0f) == 0)? 7:1;
 					param -= ((param & 0xf0) == 0xf0)? 0x60:0;
@@ -425,11 +426,11 @@ void main_loop ()
 	if (rtc_s != rtc_s_hist) {
 		rtc_s_hist = rtc_s;
 		rfr = 1;
-		if (menu_del > 0) menu_del--;
 	}
 
 	if (rfr) {
 		rfr = 0;
+		if (menu_del > 0) menu_del--;
 		if (menu == 0) {
 			printf ("\r%02x%02x",rtc_h,rtc_m);
 		} else if (menu == 1) {
@@ -450,7 +451,6 @@ void main_loop ()
 	}
 
 	term();
-
 }
 
 
