@@ -30,8 +30,7 @@
 #define KN_SW 4
 #define KN_DT 3
 #define KN_CLK 2
-#define BANK_DZWONKOW 5
-#define KN_INIT() (KN_PORT |= (1<<KN_CLK)|(1<<KN_DT)|(1<<KN_SW)|(1<<BANK_DZWONKOW))
+#define KN_INIT() (KN_PORT |= (1<<KN_CLK)|(1<<KN_DT)|(1<<KN_SW))
 
 #define MENU_SET_AUTO 0
 #define MENU_SET_MAN 1
@@ -42,9 +41,16 @@
 #define MENU_SET_WEEK 6
 #define MENU_VIEW 7
 #define MENU_ADD 10
+#define MENU_BANK 11
 #define MENU_CHG 12
 #define MENU_ERASE 14
 #define MENU_SET_MAX 14
+
+#define MAX_BANK 3
+#define EEPROM_AUTO (MAX_BANK*64)
+#define EEPROM_CZAS (MAX_BANK*64+1)
+#define EEPROM_KONTRAST (MAX_BANK*64+2)
+#define EEPROM_BANK (MAX_BANK*64+3)
 
 volatile int8_t kn_val, kn_press;
 volatile int8_t rtc_d, rtc_h, rtc_m, rtc_s;
@@ -57,16 +63,18 @@ volatile int8_t rfr, dzwonek_recznie;
 
 struct DZWONKI {uint8_t h; uint8_t m;};
 
-struct DZWONKI dzwonki[32];
+struct DZWONKI dzwonki[L_DZWONKOW];
 
-uint8_t bank_dzwonkow;
+uint8_t bank_dzwonkow = 0;
 
 void odczyt ()
 {
-	eeprom_read_block (dzwonki, (void *)0, sizeof (dzwonki));
-	eeprom_read_block (&mode_auto, (void *)64, 1);
-	eeprom_read_block (&dzwonek_czas, (void *)65, 1);
-	eeprom_read_block (&lcd_kontrast, (void *)66, 1);
+	eeprom_read_block (&mode_auto, (void *)EEPROM_AUTO, 1);
+	eeprom_read_block (&dzwonek_czas, (void *)EEPROM_CZAS, 1);
+	eeprom_read_block (&lcd_kontrast, (void *)EEPROM_KONTRAST, 1);
+	eeprom_read_block (&bank_dzwonkow, (void *)EEPROM_BANK, 1);
+	if (bank_dzwonkow > MAX_BANK - 1) bank_dzwonkow = 0;
+	eeprom_read_block (dzwonki, (void *)(bank_dzwonkow * sizeof (dzwonki)), sizeof (dzwonki));
 }
 
 
@@ -87,7 +95,7 @@ int sort (const void *a, const void *b)
 void term()
 {
 	uint8_t cmd;
-	int8_t i;
+	uint8_t i;
 	static uint8_t hist;
 
 	//cmd = uart_get();
@@ -108,7 +116,7 @@ void term()
 			cmd = uart_get_hex ();
 			dzwonki[i].m = cmd;
 			qsort (dzwonki, L_DZWONKOW, 2, sort);
-			eeprom_update_block (dzwonki, (void *)0, sizeof (dzwonki));
+			eeprom_update_block (dzwonki, (void *)(bank_dzwonkow*sizeof (dzwonki)), sizeof (dzwonki));
 			uart_puts ("\n\r>");
 		} else {
 			uart_puts ("\n\rZa duzy numer\n\r>");
@@ -120,7 +128,7 @@ void term()
 			dzwonki[i].h = 0xff;
 			dzwonki[i].m = 0xff;
 			qsort (dzwonki, L_DZWONKOW, 2, sort);
-			eeprom_update_block (dzwonki, (void *)0, sizeof (dzwonki));
+			eeprom_update_block (dzwonki, (void *)(bank_dzwonkow*sizeof (dzwonki)), sizeof (dzwonki));
 			uart_puts ("\n\r>");
 		} else {
 			uart_puts ("\n\rZa duzy numer dzwonka\n\r>");
@@ -133,7 +141,7 @@ void term()
 			dzwonki[i].h = -1;
 			dzwonki[i].m = -1;
 		}
-		eeprom_update_block (dzwonki, (void *)0, sizeof (dzwonki));
+		eeprom_update_block (dzwonki, (void *)(bank_dzwonkow*sizeof (dzwonki)), sizeof (dzwonki));
 		uart_puts ("\n\rUsunieto");
 	} else if (cmd == 'l') {
 		uart_puts ("Lista dzwonkow\n\r");
@@ -202,11 +210,11 @@ void main_loop ()
 		kn_press = 0;
 		if (menu == 0) {
 			menu = 1;
-			menu_del = MAX_MENU_INI;
+			menu_del = MIN_MENU_INI;
 			//menu_pos = 0;
 		} else if (menu == 1) {
 			menu = 2;
-			menu_del = MAX_MENU_INI;
+			menu_del = MIN_MENU_INI;
 			if (menu_pos == MENU_SET_AUTO) {
 				param = mode_auto;
 			} else if (menu_pos == MENU_SET_MAN) {
@@ -222,11 +230,11 @@ void main_loop ()
 				param = rtc_m;
 			} else if (menu_pos == MENU_SET_WEEK) {
 				param = rtc_d;
+			} else if (menu_pos == MENU_BANK) {
+				param = bank_dzwonkow;
 			} else if (menu_pos == MENU_VIEW || menu_pos == MENU_CHG || menu_pos == MENU_ERASE) {
-				menu_del = MIN_MENU_INI;
 				param = 0;
 			} else if (menu_pos == MENU_ADD) {
-				menu_del = MIN_MENU_INI;
 				menu = 3;//przeskocz jeden poziom
 				for (i = 0; i < L_DZWONKOW; i++) {
 					if (dzwonki[i].h == 0xff) break;
@@ -236,18 +244,23 @@ void main_loop ()
 			}
 		} else if (menu == 2) {
 			menu = 0;
+			menu_del = MIN_MENU_INI;
 			if (menu_pos == MENU_SET_AUTO) {
 				mode_auto = param;
-				eeprom_update_block (&mode_auto, (void *)64, 1);
+				eeprom_update_block (&mode_auto, (void *)EEPROM_AUTO, 1);
 			} else if (menu_pos == MENU_SET_MAN) {
 				dzwonek_recznie = 0;
 			} else if (menu_pos == MENU_SET_LIMIT) {
 				dzwonek_czas = param;
-				eeprom_update_block (&dzwonek_czas, (void *)65, 1);
+				eeprom_update_block (&dzwonek_czas, (void *)EEPROM_CZAS, 1);
 			} else if (menu_pos == MENU_SET_LCD) {
 				lcd_kontrast = param;
-				eeprom_update_block (&lcd_kontrast, (void *)66, 1);
+				eeprom_update_block (&lcd_kontrast, (void *)EEPROM_KONTRAST, 1);
 				ustaw_kontrast ();
+			} else if (menu_pos == MENU_BANK) {
+				bank_dzwonkow = param;
+				eeprom_update_block (&bank_dzwonkow, (void *)EEPROM_BANK, 1);
+				odczyt();
 			} else if (menu_pos == MENU_SET_MIN) {
 				rtc_m = param;
 				rtc_s = 0;
@@ -275,14 +288,13 @@ void main_loop ()
 #endif
 			} else if (menu_pos == MENU_CHG) {
 				menu = 3;
-				menu_del = MIN_MENU_INI;
 				param2 = dzwonki[param].h;
 			} else if (menu_pos == MENU_ERASE) {
 				menu = 1;
 				dzwonki[param].h = 0xff;
 				dzwonki[param].m = 0xff;
 				qsort (dzwonki, L_DZWONKOW, 2, sort);
-				eeprom_update_block (dzwonki, (void *)0, sizeof (dzwonki));
+				eeprom_update_block (dzwonki, (void *)(bank_dzwonkow*sizeof (dzwonki)), sizeof (dzwonki));
 			}
 		} else if (menu == 3) {
 			if (menu_pos == MENU_CHG || menu_pos == MENU_ADD) {
@@ -296,15 +308,15 @@ void main_loop ()
 				menu = 1;
 				dzwonki[param].m = param2;
 				qsort (dzwonki, L_DZWONKOW, 2, sort);
-				eeprom_update_block (dzwonki, (void *)0, sizeof (dzwonki));
+				eeprom_update_block (dzwonki, (void *)(bank_dzwonkow*sizeof (dzwonki)), sizeof (dzwonki));
 			}
 		}
 		rfr = 1;
 	}
 
 	if (kn_val) {
+		menu_del = MIN_MENU_INI;
 		if (menu == 3) {
-			menu_del = MIN_MENU_INI;
 			if (menu_pos == MENU_CHG || menu_pos == MENU_ADD) {
 				if (kn_val < 0) {
 					param2 -= ((param2 & 0x0f) == 0)? 7:1;
@@ -317,7 +329,6 @@ void main_loop ()
 				}
 			}
 		} else if (menu == 4) {
-			menu_del = MIN_MENU_INI;
 			if (menu_pos == MENU_CHG || menu_pos == MENU_ADD) {
 				if (kn_val < 0) {
 					param2 -= ((param2 & 0x0f) == 0)? 7:1;
@@ -330,18 +341,20 @@ void main_loop ()
 				}
 			}
 		} else if (menu == 1) {
-			menu_del = MAX_MENU_INI;
 			menu_pos += kn_val;
 			if (menu_pos > MENU_SET_MAX) menu_pos = MENU_SET_MAX;
 			else if (menu_pos < 0) menu_pos = 0;
 		} else if (menu == 2) {
-			//menu_del = MAX_MENU_INI;
-			menu_del = 240;//27.11.2025
+			//menu_del = 240;//27.11.2025
 			if (menu_pos == MENU_SET_AUTO) { //rodzaj automatyki
 				param += kn_val;
 				if (param > 2) param = 2;
 				else if (param < 0) param = 0;
 			} if (menu_pos == MENU_SET_MAN) {
+			} if (menu_pos == MENU_BANK) {
+				param += kn_val;
+				if (param > MAX_BANK-1) param = MAX_BANK-1;
+				else if (param < 0) param = 0;
 			} if (menu_pos == MENU_SET_LIMIT) { //czas dzwonka (1 - 9)s
 				param += kn_val;
 				if (param > 9) param = 9;
@@ -376,7 +389,7 @@ void main_loop ()
 				else if (param < 1) param = 7;
 			} else if (menu_pos == MENU_VIEW || menu_pos == MENU_ERASE || menu_pos == MENU_CHG) {
 				//menu_del = MIN_MENU_INI;
-				menu_del = 240;//27.11.2025
+				//menu_del = 240;//27.11.2025
 				param += kn_val;
 				if (dzwonki[param].h == 0xff) param--;
 				if (param < 0) param = 0;
