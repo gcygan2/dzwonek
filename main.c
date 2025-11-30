@@ -24,7 +24,6 @@
 #define USART_BAUDRATE 19200
 #define BAUD_PRESCALE (((F_CPU / (USART_BAUDRATE * 16UL))) - 1) 
 
-
 #define KN_PIN PINB
 #define KN_PORT PORTB
 #define KN_DDR DDRB
@@ -347,7 +346,7 @@ void main_loop ()
 			else if (menu_pos < 0) menu_pos = 0;
 		} else if (menu == 2) {
 			if (menu_pos == MENU_RES8 || menu_pos == MENU_RES9 || menu_pos == MENU_RESD) {
-				param = 0xff;
+				param = 0;
 			} else if (menu_pos == MENU_SET_AUTO) { //rodzaj automatyki
 				param += kn_val;
 				if (param > 2) param = 2;
