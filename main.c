@@ -11,7 +11,7 @@
 #define I2C
 
 #define MAX_MENU_INI 70
-#define MIN_MENU_INI 6
+#define MIN_MENU_INI 7
 
 #define ARD_PCF8583 0xd0
 
@@ -41,9 +41,12 @@
 #define MENU_SET_MIN 5
 #define MENU_SET_WEEK 6
 #define MENU_VIEW 7
+#define MENU_RES8 8
+#define MENU_RES9 9
 #define MENU_ADD 10
 #define MENU_BANK 11
 #define MENU_CHG 12
+#define MENU_RESD 13
 #define MENU_ERASE 14
 #define MENU_SET_MAX 14
 
@@ -244,7 +247,6 @@ void main_loop ()
 			}
 		} else if (menu == 2) {
 			menu = 0;
-			menu_del = MIN_MENU_INI;
 			if (menu_pos == MENU_SET_AUTO) {
 				mode_auto = param;
 				eeprom_update_block (&mode_auto, (void *)EEPROM_AUTO, 1);
@@ -299,7 +301,6 @@ void main_loop ()
 		} else if (menu == 3) {
 			if (menu_pos == MENU_CHG || menu_pos == MENU_ADD) {
 				menu = 4;
-				menu_del = MIN_MENU_INI;
 				dzwonki[param].h = param2;
 				param2 = dzwonki[param].m;
 			}
@@ -345,8 +346,9 @@ void main_loop ()
 			if (menu_pos > MENU_SET_MAX) menu_pos = MENU_SET_MAX;
 			else if (menu_pos < 0) menu_pos = 0;
 		} else if (menu == 2) {
-			//menu_del = 240;//27.11.2025
-			if (menu_pos == MENU_SET_AUTO) { //rodzaj automatyki
+			if (menu_pos == MENU_RES8 || menu_pos == MENU_RES9 || menu_pos == MENU_RESD) {
+				param = 0xff;
+			} else if (menu_pos == MENU_SET_AUTO) { //rodzaj automatyki
 				param += kn_val;
 				if (param > 2) param = 2;
 				else if (param < 0) param = 0;
@@ -389,8 +391,6 @@ void main_loop ()
 				if (param > 7) param = 1;
 				else if (param < 1) param = 7;
 			} else if (menu_pos == MENU_VIEW || menu_pos == MENU_ERASE || menu_pos == MENU_CHG) {
-				//menu_del = MIN_MENU_INI;
-				//menu_del = 240;//27.11.2025
 				param += kn_val;
 				if (dzwonki[param].h == 0xff) param--;
 				if (param < 0) param = 0;
