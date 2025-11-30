@@ -121,6 +121,28 @@
 		<td>
 		</td>
 	</tr>
+		<tr>
+		<td rowspan="3">
+			<p><b>Fb</b></p>
+		</td>
+		<td rowspan="3">
+			<p>Bank dzwonków</p>
+		</td>
+		<td>
+			<p>Fb:00 normalne (45 min.)</p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<p>Fb:01 skrócone (30 min.)</p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<p>Fb:02 skrócone (35 min.)</p>
+		</td>
+	</tr>
+
 	<tr>
 		<td>
 			<p><b>FC</b></p>
