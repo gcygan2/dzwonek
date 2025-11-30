@@ -314,6 +314,7 @@ void main_loop ()
 		rfr = 1;
 	}
 
+obrot:
 	if (kn_val) {
 		menu_del = MIN_MENU_INI;
 		if (menu == 3) {
@@ -342,16 +343,16 @@ void main_loop ()
 			}
 		} else if (menu == 1) {
 			menu_pos += kn_val;
-			if (menu_pos > MENU_SET_MAX) menu_pos = MENU_SET_MAX;
-			else if (menu_pos < 0) menu_pos = 0;
-		} else if (menu == 2) {
 			if (menu_pos == MENU_RES8 || menu_pos == MENU_RES9 || menu_pos == MENU_RESD) {
-				param = 0;
-			} else if (menu_pos == MENU_SET_AUTO) { //rodzaj automatyki
+				goto obrot;//pomin nieistniejace pozycje menu
+			}
+			if (menu_pos > MENU_SET_MAX) menu_pos = 0;
+			else if (menu_pos < 0) menu_pos = MENU_SET_MAX;
+		} else if (menu == 2) {
+			if (menu_pos == MENU_SET_AUTO) { //rodzaj automatyki
 				param += kn_val;
 				if (param > 2) param = 2;
 				else if (param < 0) param = 0;
-			} if (menu_pos == MENU_SET_MAN) {
 			} if (menu_pos == MENU_BANK) {
 				param += kn_val;
 				if (param > MAX_BANK-1) param = MAX_BANK-1;
