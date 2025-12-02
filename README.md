@@ -7,7 +7,7 @@
 <li>Kręcąc gałką wybieramy żądaną funkcję.<br>Przykładowo. Po wybraniu funkcji <span style="font-style: italic">Ustawianie godziny</span> na wyświetlaczu pojawi się komunikat:<br><div style="text-align: center">F4:</div></li>
 <li>Po wciśnięciu gałki na wyświetlaczu pojawi się komunikat podobny do tego:<br><div style="text-align: center">F4:12</div></li>
 <li>Kręcąc gałką należy ustawić żądaną godzinę.</li>
-<li>Należy przycisnąć gałkę, aby zapisać godzinę w pamięci sterownika. Jeżeli gałka nie zaostanie przyciśnięta w ciągu dziesięciu sekund, ustawiona wartość nie zostanie wprowadzona do pamięci.</li>
+<li>Należy przycisnąć gałkę, aby zapisać godzinę w pamięci sterownika. Jeżeli gałka nie zostanie przyciśnięta w ciągu dziesięciu sekund, ustawiona wartość nie zostanie wprowadzona do pamięci.</li>
 </ol>
 <div>W analogiczny sposób należy postępować w przypadku ustawiania minut i pozostałych funkcji.</div>
 <h2 style="text-align: center">Ręczne włączanie dzwonka</h2>
@@ -122,27 +122,6 @@
 		</td>
 	</tr>
 	<tr>
-		<td rowspan="3">
-			<p><b>Fb</b></p>
-		</td>
-		<td rowspan="3">
-			<p>Bank dzwonków</p>
-		</td>
-		<td>
-			<p>Fb:00 normalne (45 min.)</p>
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<p>Fb:01 skrócone (30 min.)</p>
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<p>Fb:02 skrócone (35 min.)</p>
-		</td>
-	</tr>
-	<tr>
 		<td>
 			<p><b>FC</b></p>
 		</td>
@@ -163,7 +142,6 @@
 		</td>
 	</tr>
 </table>
-
 <h2 style="text-align: center">Programowanie listy dzwonków przy pomocy komputera</h2>
 <ol>
 <li>Sterownik podłączyć do komputera przy pomocy przewodu USB mini.</li>
@@ -177,3 +155,4 @@
 </ul>
 <li>Po wciśnięciu klawisza Enter sterownik pokaże listę dostępnych poleceń. Należy wiedzieć, że wszystkie podawane wartości są muszą być dwucyfrowe, np godzinę 7 zapisujemy jako 07.</li>
 </ol>
+
