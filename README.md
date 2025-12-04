@@ -1,4 +1,3 @@
-<p>Grzegorz Cygan</p>
 <h1 style="text-align: center">Instrukcja obsługi sterownika dzwonka szkolnego</h1>
 <img src="rys.png" alt="dzwonek" style="display: block;margin-left: auto;margin-right: auto">
 <h2 style="text-align: center">Zmiana ustawień godziny i innych parametrów</h2>
@@ -7,11 +6,14 @@
 <li>Kręcąc gałką wybieramy żądaną funkcję.<br>Przykładowo. Po wybraniu funkcji <span style="font-style: italic">Ustawianie godziny</span> na wyświetlaczu pojawi się komunikat:<br><div style="text-align: center">F4:</div></li>
 <li>Po wciśnięciu gałki na wyświetlaczu pojawi się komunikat podobny do tego:<br><div style="text-align: center">F4:12</div></li>
 <li>Kręcąc gałką należy ustawić żądaną godzinę.</li>
-<li>Należy przycisnąć gałkę, aby zapisać godzinę w pamięci sterownika. Jeżeli gałka nie zostanie przyciśnięta w ciągu dziesięciu sekund, ustawiona wartość nie zostanie wprowadzona do pamięci.</li>
+<li>Należy przycisnąć gałkę, aby zapisać godzinę w pamięci sterownika. Jeżeli gałka nie zostanie przyciśnięta w ciągu dziesięciu sekund, ustawiona wartość nie zostanie zapamiętana.</li>
 </ol>
 <div>W analogiczny sposób należy postępować w przypadku ustawiania minut i pozostałych funkcji.</div>
 <h2 style="text-align: center">Ręczne włączanie dzwonka</h2>
-<div>Aby uruchomić dzwonek (zadzwonić) w dowolnej chwili, należy: przycisnąć gałkę, obracając gałkę wybrać funkcję <span style="font-style: italic">F1 Sterowanie ręczne</span> i przycisnąć gałkę. Dzwonek będzie dzwonił, aż do powtórnego przyciśnięcia gałki.</div>
+<li>Aby włączyć dzwonek w dowolnym momencie, należy nacisnąć gałkę.
+<li>Następnie, obracając gałkę, wybrać funkcję F1 – Sterowanie ręczne i ponownie ją nacisnąć.
+<li>Dzwonek będzie działał przez czas określony parametrem F2 – Czas dzwonienia.
+<li>Naciśnięcie gałki w trakcie dzwonienia spowoduje jego natychmiastowe przerwanie.
 <h2 style="text-align: center">Wykaz funkcji</h2>
 <table width="100%" cellpadding="4" cellspacing="0" border="1">
 	<tr>
@@ -122,6 +124,27 @@
 		</td>
 	</tr>
 	<tr>
+		<td rowspan="3">
+			<p><b>Fb</b></p>
+		</td>
+		<td rowspan="3">
+			<p>Bank dzwonków</p>
+		</td>
+		<td>
+			<p>Fb:00 normalne (45 min.)</p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<p>Fb:01 skrócone (30 min.)</p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<p>Fb:02 skrócone (35 min.)</p>
+		</td>
+	</tr>
+	<tr>
 		<td>
 			<p><b>FC</b></p>
 		</td>
@@ -142,6 +165,7 @@
 		</td>
 	</tr>
 </table>
+
 <h2 style="text-align: center">Programowanie listy dzwonków przy pomocy komputera</h2>
 <ol>
 <li>Sterownik podłączyć do komputera przy pomocy przewodu USB mini.</li>
