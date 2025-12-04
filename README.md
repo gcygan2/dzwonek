@@ -19,6 +19,8 @@ W analogiczny sposób należy postępować w przypadku ustawiania minut i pozost
 4. Naciśnięcie gałki w trakcie dzwonienia spowoduje jego natychmiastowe przerwanie.
 ## Wykaz funkcji
 
+|Fx |Opis              |Parametr                   |
+|---|------------------|---------------------------|
 |F0 |Tryb pracy        |F0:00 wyłączony            |
 |   |                  |---------------------------|
 |   |                  |F0:01 poniedziałek – piątek|
