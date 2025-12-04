@@ -22,14 +22,10 @@ W analogiczny sposób należy postępować w przypadku ustawiania minut i pozost
 |Fx |Opis              |Parametr                   |
 |---|------------------|---------------------------|
 |F0 |Tryb pracy        |F0:00 wyłączony            |
-|   |                  |---------------------------|
 |   |                  |F0:01 poniedziałek – piątek|
-|   |                  |---------------------------|
 |   |                  |F0:02 codziennie           |
-|---|------------------|---------------------------|
 |F1 |Sterowanie ręczne |                           |
-|---|------------------|---------------------------|
-
+|F2 |Czas dzwonienia   |F2:01 – F2:09 (1s – 9s)    |
 
 ## Programowanie listy dzwonków przy pomocy komputera
 1. Sterownik podłączyć do komputera przy pomocy przewodu USB mini.
