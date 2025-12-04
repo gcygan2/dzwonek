@@ -8,6 +8,7 @@
    F4:12
 4. Kręcąc gałką należy ustawić żądaną godzinę.
 5. Należy przycisnąć gałkę, aby zapisać godzinę w pamięci sterownika. Jeżeli gałka nie zostanie przyciśnięta w ciągu dziesięciu sekund, ustawiona wartość nie zostanie zapamiętana.
+
 W analogiczny sposób należy postępować w przypadku ustawiania minut i pozostałych funkcji.
 ## Ręczne włączanie dzwonka
 1. Aby włączyć dzwonek w dowolnym momencie, należy nacisnąć gałkę.
@@ -170,8 +171,8 @@ W analogiczny sposób należy postępować w przypadku ustawiania minut i pozost
 1. Sterownik podłączyć do komputera przy pomocy przewodu USB mini.
 2. Proszę sprawdzić w menedżerze urządzeń, na którym porcie COM pojawi się sterownik dzwonka USB-SERIAL CH340. Zapisać numer portu, bo będzie potrzebny w punkcie 3. W razie potrzeby zainstalować sterowniki do układu CH340.
 3. Na komputerze uruchomić program putty (może być użyty dowolny tzw. emulator terminala RS232). Ustawić parametry transmisji:
-	Speed 19200,
-	Serial line COM<numer> (ten odczytany w punkcie 2),
-	Connection type: Serial.
+	* Speed 19200,
+	* Serial line COM<numer> (ten odczytany w punkcie 2),
+	* Connection type: Serial.
 4. Po wciśnięciu klawisza Enter sterownik pokaże listę dostępnych poleceń. Należy wiedzieć, że wszystkie podawane wartości są muszą być dwucyfrowe, np godzinę 7 zapisujemy jako 07.
 
