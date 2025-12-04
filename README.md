@@ -1,13 +1,15 @@
 # Instrukcja obsługi sterownika dzwonka szkolnego
 ![schemat](https://github.com/gcygan2/dzwonek/blob/main/rys.png)
 ## Zmiana ustawień godziny i innych parametrów
-1. Po wciśnięciu gałki na wyświetlaczu pojawi się komunikat podobny do tego:<br><div style="text-align: center">F1:</div></li>
-2. Kręcąc gałką wybieramy żądaną funkcję.<br>Przykładowo. Po wybraniu funkcji <span style="font-style: italic">Ustawianie godziny</span> na wyświetlaczu pojawi się komunikat:
+1. Po wciśnięciu gałki na wyświetlaczu pojawi się komunikat podobny do tego:
+   F1:
+3. Kręcąc gałką wybieramy żądaną funkcję.
+   Przykładowo. Po wybraniu funkcji Ustawianie godziny na wyświetlaczu pojawi się komunikat:
    F4
-3. Po wciśnięciu gałki na wyświetlaczu pojawi się komunikat podobny do tego:
+4. Po wciśnięciu gałki na wyświetlaczu pojawi się komunikat podobny do tego:
    F4:12
-4. Kręcąc gałką należy ustawić żądaną godzinę.
-5. Należy przycisnąć gałkę, aby zapisać godzinę w pamięci sterownika. Jeżeli gałka nie zostanie przyciśnięta w ciągu dziesięciu sekund, ustawiona wartość nie zostanie zapamiętana.
+5. Kręcąc gałką należy ustawić żądaną godzinę.
+6. Należy przycisnąć gałkę, aby zapisać godzinę w pamięci sterownika. Jeżeli gałka nie zostanie przyciśnięta w ciągu dziesięciu sekund, ustawiona wartość nie zostanie zapamiętana.
 
 W analogiczny sposób należy postępować w przypadku ustawiania minut i pozostałych funkcji.
 ## Ręczne włączanie dzwonka
