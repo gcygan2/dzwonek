@@ -1,31 +1,11 @@
 # Instrukcja obsługi sterownika dzwonka szkolnego
 ![schemat](https://github.com/gcygan2/dzwonek/blob/main/rys.png)
 ## Zmiana ustawień godziny i innych parametrów
-1. Wybór funkcji
 - Po wciśnięciu gałki na wyświetlaczu pojawi się komunikat, np.:
 ```
-F1
+F5
 ```
 - Kręcąc gałką wybieramy żądaną funkcję.
-- Przykład: po wybraniu funkcji Ustawianie godziny na wyświetlaczu pojawi się komunikat:
-```
-F4
-```
-2. Ustawianie godziny
-- Po ponownym wciśnięciu gałki pojawi się komunikat, np.:
-```
-F4:12
-```
-- Kręcąc gałką należy ustawić żądaną godzinę.
-- Aby zapisać ustawienie, należy przycisnąć gałkę.
-- Jeśli gałka nie zostanie wciśnięta w ciągu 10 sekund, ustawiona wartość nie zostanie zapamiętana.
-- W analogiczny sposób należy postępować przy ustawianiu minut oraz pozostałych funkcji.
-## Ręczne włączanie dzwonka
-1. Aby włączyć dzwonek w dowolnym momencie, należy nacisnąć gałkę.
-2. Następnie, obracając gałkę, wybrać funkcję F1 – Sterowanie ręczne i ponownie ją nacisnąć.
-3. Dzwonek będzie działał przez czas określony parametrem F2 – Czas dzwonienia.
-4. Naciśnięcie gałki w trakcie dzwonienia spowoduje jego natychmiastowe przerwanie.
-## Wykaz funkcji
 |Fx|Opis                       |Parametr                 |
 |--|---------------------------|-------------------------|
 |F0|Tryb pracy                 |00 wyłączony             |
@@ -44,6 +24,23 @@ F4:12
 |  |                           |Fb:02 skrócone (35 min.) |
 |FC|Modyfikacja listy dzwonków |                         |
 |FE|Usunięcie z listy dzwonków |                         |
+- Przykład: po wybraniu funkcji Ustawianie godziny na wyświetlaczu pojawi się komunikat:
+```
+F4
+```
+- Po ponownym wciśnięciu gałki pojawi się komunikat, np.:
+```
+F4:12
+```
+- Kręcąc gałką należy ustawić żądaną godzinę.
+- Aby zapisać ustawienie, należy przycisnąć gałkę.
+- Jeśli gałka nie zostanie wciśnięta w ciągu 10 sekund, ustawiona wartość nie zostanie zapamiętana.
+- W analogiczny sposób należy postępować przy ustawianiu minut oraz pozostałych funkcji.
+## Ręczne włączanie dzwonka
+1. Aby włączyć dzwonek w dowolnym momencie, należy nacisnąć gałkę.
+2. Następnie, obracając gałkę, wybrać funkcję F1 – Sterowanie ręczne i ponownie ją nacisnąć.
+3. Dzwonek będzie działał przez czas określony parametrem F2 – Czas dzwonienia.
+4. Naciśnięcie gałki w trakcie dzwonienia spowoduje jego natychmiastowe przerwanie.
 ## Programowanie listy dzwonków przy pomocy komputera
 1. Sterownik podłączyć do komputera przy pomocy przewodu USB mini.
 2. Proszę sprawdzić w menedżerze urządzeń, na którym porcie COM pojawi się sterownik dzwonka USB-SERIAL CH340. Zapisać numer portu, bo będzie potrzebny w punkcie 3. W razie potrzeby zainstalować sterowniki do układu CH340.
