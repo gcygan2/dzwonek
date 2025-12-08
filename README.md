@@ -36,9 +36,10 @@
 - W analogiczny sposób należy postępować przy ustawianiu minut oraz pozostałych funkcji.
 ## Programowanie listy dzwonków przy pomocy komputer
 - Sterownik podłączyć do komputera przy pomocy przewodu USB mini.
-- Proszę sprawdzić w menedżerze urządzeń, na którym porcie COM pojawi się sterownik dzwonka USB-SERIAL CH340. Zapisać numer portu, bo będzie potrzebny w punkcie 3. W razie potrzeby zainstalować sterowniki do układu CH340.
+- Proszę sprawdzić w menedżerze urządzeń, na którym porcie COM pojawi się sterownik dzwonka. W razie potrzeby zainstalować sterowniki.
 - Na komputerze uruchomić program putty (może być użyty dowolny tzw. emulator terminala RS232). Ustawić parametry transmisji:
+        - 8N1
 	- Speed 19200,
 	- Serial line COM<numer> (ten odczytany w punkcie 2),
 	- Connection type: Serial.
-- Po wciśnięciu klawisza Enter sterownik pokaże listę dostępnych poleceń. Należy wiedzieć, że wszystkie podawane wartości są muszą być dwucyfrowe, np godzinę 7 zapisujemy jako 07.
+- Po wciśnięciu klawisza Enter sterownik pokaże listę dostępnych poleceń. Należy wiedzieć, że wszystkie podawane wartości muszą być dwucyfrowe, np godzinę 7 zapisujemy jako 07.
