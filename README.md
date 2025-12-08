@@ -6,6 +6,7 @@
 F5
 ```
 - Kręcąc gałką wybieramy żądaną funkcję.
+  
 |Fx|Opis                       |Parametr                 |
 |--|---------------------------|-------------------------|
 |F0|Tryb pracy                 |00 wyłączony             |
