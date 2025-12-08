@@ -4,6 +4,7 @@
 - Po wciśnięciu gałki na wyświetlaczu pojawi się komunikat, np.:
 ![schemat](https://github.com/gcygan2/dzwonek/blob/main/1.png)
 - Kręcąc gałką wybieramy żądaną funkcję.
+  
 |Fx|Opis                       |Parametr                 |
 |--|---------------------------|-------------------------|
 |F0|Tryb pracy                 |00 wyłączony             |
