@@ -2,6 +2,7 @@
 ![schemat](https://github.com/gcygan2/dzwonek/blob/main/rys.png)
 ## Zmiana ustawień godziny i innych parametrów
 - Po wciśnięciu gałki na wyświetlaczu pojawi się komunikat, np.:
+
 ![schemat](https://github.com/gcygan2/dzwonek/blob/main/1.png)
 - Kręcąc gałką wybieramy żądaną funkcję.
   
@@ -24,8 +25,10 @@
 |FC|Modyfikacja listy dzwonków |                         |
 |FE|Usunięcie z listy dzwonków |                         |
 - Przykład: po wybraniu funkcji Ustawianie godziny na wyświetlaczu pojawi się komunikat:
+
 ![schemat](https://github.com/gcygan2/dzwonek/blob/main/2.png)
 - Po ponownym wciśnięciu gałki pojawi się komunikat, np.:
+
 ![schemat](https://github.com/gcygan2/dzwonek/blob/main/3.png)
 - Kręcąc gałką należy ustawić żądaną godzinę.
 - Aby zapisać ustawienie, należy przycisnąć gałkę.
