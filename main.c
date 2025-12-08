@@ -10,8 +10,8 @@
 //#define EMU
 #define I2C
 
-#define MAX_MENU_INI 70
-#define MIN_MENU_INI 7
+#define MAX_MENU_INI 60
+#define MIN_MENU_INI 6
 
 #define ARD_PCF8583 0xd0
 
@@ -316,7 +316,7 @@ void main_loop ()
 
 obrot:
 	if (kn_val) {
-		menu_del = MIN_MENU_INI;
+		menu_del = MAX_MENU_INI;
 		if (menu == 3) {
 			if (menu_pos == MENU_CHG || menu_pos == MENU_ADD) {
 				if (kn_val < 0) {
@@ -376,7 +376,6 @@ obrot:
 					if (param > 0x23) param = 0;
 				}
 			} else if (menu_pos == MENU_SET_MIN) {//minuty
-				menu_del = MAX_MENU_INI;
 				if (kn_val < 0) {
 					param -= ((param & 0x0f) == 0)? 7:1;
 					param -= ((param & 0xf0) == 0xf0)? 0x60:0;
