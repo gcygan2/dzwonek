@@ -9,7 +9,7 @@
 
 //#define EMU
 #define I2C
-
+//dodaje komentarz
 #define MAX_MENU_INI 60
 #define MIN_MENU_INI 6
 
