@@ -32,9 +32,9 @@
 ![schemat](https://github.com/gcygan2/dzwonek/blob/main/3.png)
 - Kręcąc gałką należy ustawić żądaną godzinę.
 - Aby zapisać ustawienie, należy przycisnąć gałkę.
-- Jeśli gałka nie zostanie wciśnięta w ciągu 10 sekund, ustawiona wartość nie zostanie zapamiętana.
-- W analogiczny sposób należy postępować przy ustawianiu minut oraz pozostałych funkcji.
-## Programowanie listy dzwonków przy pomocy komputer
+- Jeśli gałka nie zostanie wciśnięta w ciągu 30 sekund, ustawiona wartość nie zostanie zapamiętana.
+- W analogiczny sposób należy postępować przy ustawianiu parametrów dla pozostałych funkcji.
+## Programowanie listy dzwonków przy pomocy komputera
 - Sterownik podłączyć do komputera przy pomocy przewodu USB mini.
 - Proszę sprawdzić w menedżerze urządzeń, na którym porcie COM pojawi się sterownik dzwonka. W razie potrzeby zainstalować sterowniki.
 - Na komputerze uruchomić program putty (może być użyty dowolny tzw. emulator terminala RS232). Ustawić parametry transmisji:
