@@ -4,7 +4,7 @@
 - Po wciśnięciu gałki na wyświetlaczu pojawi się komunikat, np.:
 
 ![schemat](https://github.com/gcygan2/dzwonek/blob/main/1.png)
-- Kręcąc gałką wybieramy żądaną funkcję.
+- Kręcąc gałką wybieramy funkcję Fx zgodnie z poniższą tabelą.
   
 |Fx|Opis                       |Parametr                 |
 |--|---------------------------|-------------------------|
