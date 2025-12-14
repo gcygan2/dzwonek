@@ -37,7 +37,7 @@
 - Sterownik podłączyć do komputera przy pomocy przewodu USB mini.
 - Proszę sprawdzić w menedżerze urządzeń, na którym porcie COM pojawi się sterownik dzwonka. W razie potrzeby zainstalować sterowniki.
 - Na komputerze uruchomić program putty (może być użyty dowolny tzw. emulator terminala RS232). Ustawić parametry transmisji:
-        - 8N1
+    - 8N1
 	- Speed 19200,
 	- Serial line COM<numer> (ten odczytany w punkcie 2),
 	- Connection type: Serial.
