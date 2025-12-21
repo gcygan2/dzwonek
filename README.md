@@ -23,12 +23,9 @@
 |  |                           |Fb:02 skrócone (35 min.) |
 |FC|Modyfikacja listy dzwonków |                         |
 |FE|Usunięcie z listy dzwonków |                         |
-- Przykład: po wybraniu funkcji Ustawianie godziny na wyświetlaczu pojawi się komunikat:
+- Przykład: po wybraniu funkcji Ustawianie godziny i ponownym wciśnięciu gałki na wyświetlaczu pojawi się komunikat, np.:
 
 ![schemat](https://github.com/gcygan2/dzwonek/blob/main/2.png)
-- Po ponownym wciśnięciu gałki pojawi się komunikat, np.:
-
-![schemat](https://github.com/gcygan2/dzwonek/blob/main/3.png)
 - Kręcąc gałką należy ustawić żądaną godzinę.
 - Aby zapisać ustawienie, należy przycisnąć gałkę.
 - Jeśli gałka nie zostanie wciśnięta w ciągu 30 sekund, ustawiona wartość nie zostanie zapamiętana.
