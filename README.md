@@ -13,11 +13,11 @@
 |F1|Sterowanie ręczne          |                         |
 |F2|Czas dzwonienia            |01 – 09 s                |
 |F3|Jasność wyświetlacza       |00 – 04                  |
-|F4|Ustawianie godziny         |00 – 23                  |
-|F5|Ustawianie minuty          |00 – 59                  |
-|F6|Ustawianie dnia tygodnia   |01 – 07 (01-poniedziałek)|
-|F7|Wyświetlenie listy dzwonków|                         |
-|FA|Dodawanie nowego dzwonka   |                         |
+|F4|Godzina                    |00 – 23                  |
+|F5|Minuta                     |00 – 59                  |
+|F6|Dzień tygodnia             |01 – 07 (01-poniedziałek)|
+|F7|Lista dzwonków             |                         |
+|FA|Dodanie dzwonka do listy   |                         |
 |Fb|Bank dzwonków              |Fb:00 normalne (45 min.) |
 |  |                           |Fb:01 skrócone (30 min.) |
 |  |                           |Fb:02 skrócone (35 min.) |
