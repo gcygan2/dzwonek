@@ -39,3 +39,5 @@
 	- Serial line COM<numer> (ten odczytany w punkcie 2),
 	- Connection type: Serial.
 - Po wciśnięciu klawisza Enter sterownik pokaże listę dostępnych poleceń. Należy wiedzieć, że wszystkie podawane wartości muszą być dwucyfrowe, np godzinę 7 zapisujemy jako 07.
+
+![schemat](https://github.com/gcygan2/dzwonek/blob/main/schemat.png)
