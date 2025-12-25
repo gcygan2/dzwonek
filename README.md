@@ -1,5 +1,5 @@
 # Instrukcja obsługi sterownika dzwonka
-![schemat](https://github.com/gcygan2/dzwonek/blob/main/rys.png)
+![schemat](https://github.com/gcygan2/dzwonek/blob/main/panel.png)
 - Po wciśnięciu gałki na wyświetlaczu pojawi się komunikat, np.:
 
 ![schemat](https://github.com/gcygan2/dzwonek/blob/main/1.png)
