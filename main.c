@@ -228,6 +228,7 @@ void main_loop ()
 			} else if (menu_pos == MENU_SET_MIN) {
 				param = rtc_m;
 			} else if (menu_pos == MENU_RES8) {
+				menu_del = MAX_MENU_INI;
 				param = 0x30;
 			} else if (menu_pos == MENU_SET_WEEK) {
 				param = rtc_d;

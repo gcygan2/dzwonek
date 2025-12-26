@@ -17,7 +17,7 @@
 |F5|Minuta                     |00 – 59                  |
 |F6|Dzień tygodnia             |01 – 07 (01-poniedziałek)|
 |F7|Lista dzwonków             |                         |
-|FA|Dodanie dzwonka do listy   |                         |
+|F8|Ustawianie sekundnika 30s  |                         |
 |Fb|Bank dzwonków              |Fb:00 normalne (45 min.) |
 |  |                           |Fb:01 skrócone (30 min.) |
 |  |                           |Fb:02 skrócone (35 min.) |
@@ -30,6 +30,7 @@
 - Aby zapisać ustawienie, należy przycisnąć gałkę.
 - Jeśli gałka nie zostanie wciśnięta w ciągu 30 sekund, ustawiona wartość nie zostanie zapamiętana.
 - W analogiczny sposób należy postępować przy ustawianiu parametrów dla pozostałych funkcji.
+
 ## Programowanie listy dzwonków przy pomocy komputera
 - Sterownik podłączyć do komputera przy pomocy przewodu USB mini.
 - Proszę sprawdzić w menedżerze urządzeń, na którym porcie COM pojawi się sterownik dzwonka. W razie potrzeby zainstalować sterowniki.
