@@ -175,7 +175,6 @@ ISR (TIMER0_OVF_vect)
 				kn_val--;
 			} else {
 				kn_val++;
-
 			}
 		}
 		hist = 1;
@@ -192,7 +191,6 @@ ISR (TIMER0_OVF_vect)
 	} else {
 		hist2 = 0;
 	}
-
 }
 
 void main_loop ()
@@ -200,7 +198,6 @@ void main_loop ()
 	uint8_t wlacz, i;
 
 	static int8_t menu = 0, menu_pos = 1, param = 0, param2 = 0;
-
 	static int8_t menu_del = MIN_MENU_INI, rtc_s_hist;
 
 	if (menu_del == 1) {
@@ -230,6 +227,8 @@ void main_loop ()
 				param = rtc_h;
 			} else if (menu_pos == MENU_SET_MIN) {
 				param = rtc_m;
+			} else if (menu_pos == MENU_RES8) {
+				param = 0x30;
 			} else if (menu_pos == MENU_SET_WEEK) {
 				param = rtc_d;
 			} else if (menu_pos == MENU_BANK) {
@@ -296,6 +295,14 @@ void main_loop ()
 				dzwonki[param].m = 0xff;
 				qsort (dzwonki, L_DZWONKOW, 2, sort);
 				eeprom_update_block (dzwonki, (void *)(bank_dzwonkow*sizeof (dzwonki)), sizeof (dzwonki));
+			} else if (menu_pos == MENU_RES8) {
+				rtc_s = param;
+#ifdef I2C
+				i2c_start(ARD_PCF8583);
+				i2c_write(0);
+				i2c_write(rtc_s);
+				i2c_stop();
+#endif
 			}
 		} else if (menu == 3) {
 			if (menu_pos == MENU_CHG || menu_pos == MENU_ADD) {
@@ -343,7 +350,7 @@ obrot:
 			}
 		} else if (menu == 1) {
 			menu_pos += kn_val;
-			if (menu_pos == MENU_RES8 || menu_pos == MENU_RES9 || menu_pos == MENU_RESD) {
+			if (menu_pos == MENU_RES9 || menu_pos == MENU_RESD) {
 				goto obrot;//pomin nieistniejace pozycje menu
 			}
 			if (menu_pos > MENU_SET_MAX) menu_pos = 0;
