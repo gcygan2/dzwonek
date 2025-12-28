@@ -21,7 +21,7 @@
 
 #define L_DZWONKOW 32
 
-#define USART_BAUDRATE 19200
+#define USART_BAUDRATE 9600
 #define BAUD_PRESCALE (((F_CPU / (USART_BAUDRATE * 16UL))) - 1) 
 
 #define KN_PIN PINB
@@ -159,8 +159,27 @@ void term()
 			}
 		}
 		uart_puts (">");
+	} else if (cmd == 's') {
+#ifdef I2C
+		i2c_start(ARD_PCF8583);
+		i2c_write(0);
+		i2c_write(0x30);
+		i2c_stop();
+#endif
+	} else if (cmd == 'b') {
+		uart_puts ("\n\rBank ");
+		bank_dzwonkow = uart_get_hex ();
+		eeprom_update_block (&bank_dzwonkow, (void *)EEPROM_BANK, 1);
+		odczyt();
+	} else if (cmd == 'g') {
+		uart_puts ("\r");
+		uart_put_hex (rtc_h);
+		uart_put (':');
+		uart_put_hex (rtc_m);
+		uart_put ('.');
+		uart_put_hex (rtc_s);
 	} else {
-		uart_puts ("\n\rl - pokaz liste dzwonkow\n\ra - wprowadz / zmodyfikuj dzwonek\n\rx - usun jeden dzwonek\n\rd - usun wszystkie dzwonki\n\r>");
+		uart_puts ("\n\rg - pokaz godzine\n\rl - pokaz liste dzwonkow\n\ra - wprowadz dzwonek\n\rx - usun jeden dzwonek\n\rd - usun wszystkie dzwonki\n\rs - ustaw 30. sekunde\n\rb - wybierz bank\n\r>");
 	}
 }
 
