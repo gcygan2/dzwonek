@@ -1,9 +1,9 @@
 # Instrukcja obsługi sterownika dzwonka
 ![schemat](https://github.com/gcygan2/dzwonek/blob/main/panel.png)
-- Po wciśnięciu gałki na wyświetlaczu pojawi się komunikat, np.:
+1. Po wciśnięciu gałki na wyświetlaczu pojawi się komunikat, np.:
 
 ![schemat](https://github.com/gcygan2/dzwonek/blob/main/1.png)
-- Kręcąc gałką wybieramy funkcję zgodnie z poniższą tabelą.
+1. Kręcąc gałką wybieramy funkcję zgodnie z poniższą tabelą.
   
 |Funkcja|Opis                       |Parametr                 |
 |--|---------------------------|-------------------------|
@@ -23,7 +23,7 @@
 |  |                           |Fb:02 skrócone (35 min.) |
 |FC|Modyfikacja listy dzwonków |                         |
 |FE|Usunięcie z listy dzwonków |                         |
-- Przykład: po wybraniu funkcji Ustawianie godziny i ponownym wciśnięciu gałki na wyświetlaczu pojawi się komunikat, np.:
+1. Przykład: po wybraniu funkcji Ustawianie godziny i ponownym wciśnięciu gałki na wyświetlaczu pojawi się komunikat, np.:
 
 ![schemat](https://github.com/gcygan2/dzwonek/blob/main/2.png)
 1. Kręcąc gałką należy ustawić żądaną godzinę.
@@ -31,13 +31,13 @@
 1. W analogiczny sposób należy postępować przy ustawianiu parametrów dla pozostałych funkcji.
 
 ## Programowanie listy dzwonków przy pomocy komputera
-1 Sterownik podłączyć do komputera przy pomocy przewodu USB mini.
-1 Proszę sprawdzić w menedżerze urządzeń, na którym porcie COM pojawi się sterownik dzwonka. W razie potrzeby zainstalować sterowniki.
-1 Na komputerze uruchomić program putty (może być użyty dowolny tzw. emulator terminala RS232). Ustawić parametry transmisji:
+1. Sterownik podłączyć do komputera przy pomocy przewodu USB mini.
+1. Proszę sprawdzić w menedżerze urządzeń, na którym porcie COM pojawi się sterownik dzwonka. W razie potrzeby zainstalować sterowniki.
+1. Na komputerze uruchomić program putty (może być użyty dowolny tzw. emulator terminala RS232). Ustawić parametry transmisji:
 	- 8N1
 	- Speed 9600,
 	- Serial line COM<numer> (ten odczytany w punkcie 2),
 	- Connection type: Serial.
-1 Po wciśnięciu klawisza Enter sterownik pokaże listę dostępnych poleceń. Należy wiedzieć, że wszystkie podawane wartości muszą być dwucyfrowe, np godzinę 7 zapisujemy jako 07.
+1. Po wciśnięciu klawisza Enter sterownik pokaże listę dostępnych poleceń. Należy wiedzieć, że wszystkie podawane wartości muszą być dwucyfrowe, np godzinę 7 zapisujemy jako 07.
 
 ![schemat](https://github.com/gcygan2/dzwonek/blob/main/schemat.png)
