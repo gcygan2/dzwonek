@@ -12,7 +12,7 @@
 |  |                           |02 codziennie            |
 |F1|Sterowanie ręczne          |                         |
 |F2|Czas dzwonienia            |01 – 09 s                |
-|F3|Jasność wyświetlacza       |00 – 04                  |
+|F3|Jasność wyświetlacza       |00 – 03                  |
 |F4|Godzina                    |00 – 23                  |
 |F5|Minuta                     |00 – 59                  |
 |F6|Dzień tygodnia             |01 – 07 (01-poniedziałek)|
