@@ -424,6 +424,8 @@ obrot:
 				param += kn_val;
 				if (dzwonki[param].h == 0xff) param--;
 				if (param < 0) param = 0;
+			} else if (menu_pos == MENU_RES8) {
+				menu_del = MAX_MENU_INI;				
 			}
 		}
 		kn_val = 0;
