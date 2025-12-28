@@ -28,6 +28,7 @@
 3. Przykład: po wybraniu funkcji Ustawianie godziny i ponownym wciśnięciu gałki na wyświetlaczu pojawi się komunikat, np.:
 
 ![schemat](https://github.com/gcygan2/dzwonek/blob/main/2.png)
+
 4. Kręcąc gałką należy ustawić żądaną godzinę.
 5. Aby zapisać ustawienie, należy w ciągu 6 sekund przycisnąć gałkę. Wyjątek stanowią funkcje F5 i F8, gdzie na przyciśnięcie gałki mamy 60s.
 6. W analogiczny sposób należy postępować przy ustawianiu parametrów dla pozostałych funkcji.
