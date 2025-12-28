@@ -3,7 +3,7 @@
 1. Po wciśnięciu gałki na wyświetlaczu pojawi się komunikat, np.:
 
 ![schemat](https://github.com/gcygan2/dzwonek/blob/main/1.png)
-1. Kręcąc gałką wybieramy funkcję zgodnie z poniższą tabelą.
+2. Kręcąc gałką wybieramy funkcję zgodnie z poniższą tabelą.
   
 |Funkcja|Opis                       |Parametr                 |
 |--|---------------------------|-------------------------|
@@ -23,7 +23,7 @@
 |  |                           |Fb:02 skrócone (35 min.) |
 |FC|Modyfikacja listy dzwonków |                         |
 |FE|Usunięcie z listy dzwonków |                         |
-1. Przykład: po wybraniu funkcji Ustawianie godziny i ponownym wciśnięciu gałki na wyświetlaczu pojawi się komunikat, np.:
+3. Przykład: po wybraniu funkcji Ustawianie godziny i ponownym wciśnięciu gałki na wyświetlaczu pojawi się komunikat, np.:
 
 ![schemat](https://github.com/gcygan2/dzwonek/blob/main/2.png)
 1. Kręcąc gałką należy ustawić żądaną godzinę.
