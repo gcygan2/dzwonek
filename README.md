@@ -26,19 +26,18 @@
 - Przykład: po wybraniu funkcji Ustawianie godziny i ponownym wciśnięciu gałki na wyświetlaczu pojawi się komunikat, np.:
 
 ![schemat](https://github.com/gcygan2/dzwonek/blob/main/2.png)
-- Kręcąc gałką należy ustawić żądaną godzinę.
-- Aby zapisać ustawienie, należy przycisnąć gałkę.
-- Jeśli gałka nie zostanie wciśnięta w ciągu 30 sekund, ustawiona wartość nie zostanie zapamiętana.
-- W analogiczny sposób należy postępować przy ustawianiu parametrów dla pozostałych funkcji.
+1 Kręcąc gałką należy ustawić żądaną godzinę.
+1 Aby zapisać ustawienie, należy w ciągu 10 sekund przycisnąć gałkę. Wyjątek stanowią funkcje F5 i F8, gdzie na przyciśnięcie gałki mamy 60s.
+1 W analogiczny sposób należy postępować przy ustawianiu parametrów dla pozostałych funkcji.
 
 ## Programowanie listy dzwonków przy pomocy komputera
-- Sterownik podłączyć do komputera przy pomocy przewodu USB mini.
-- Proszę sprawdzić w menedżerze urządzeń, na którym porcie COM pojawi się sterownik dzwonka. W razie potrzeby zainstalować sterowniki.
-- Na komputerze uruchomić program putty (może być użyty dowolny tzw. emulator terminala RS232). Ustawić parametry transmisji:
-    - 8N1
-	- Speed 19200,
+1 Sterownik podłączyć do komputera przy pomocy przewodu USB mini.
+1 Proszę sprawdzić w menedżerze urządzeń, na którym porcie COM pojawi się sterownik dzwonka. W razie potrzeby zainstalować sterowniki.
+1 Na komputerze uruchomić program putty (może być użyty dowolny tzw. emulator terminala RS232). Ustawić parametry transmisji:
+	- 8N1
+	- Speed 9600,
 	- Serial line COM<numer> (ten odczytany w punkcie 2),
 	- Connection type: Serial.
-- Po wciśnięciu klawisza Enter sterownik pokaże listę dostępnych poleceń. Należy wiedzieć, że wszystkie podawane wartości muszą być dwucyfrowe, np godzinę 7 zapisujemy jako 07.
+1 Po wciśnięciu klawisza Enter sterownik pokaże listę dostępnych poleceń. Należy wiedzieć, że wszystkie podawane wartości muszą być dwucyfrowe, np godzinę 7 zapisujemy jako 07.
 
 ![schemat](https://github.com/gcygan2/dzwonek/blob/main/schemat.png)
