@@ -343,7 +343,7 @@ void main_loop ()
 
 obrot:
 	if (kn_val) {
-		menu_del = MAX_MENU_INI;
+		menu_del = MIN_MENU_INI;
 		if (menu == 3) {
 			if (menu_pos == MENU_CHG || menu_pos == MENU_ADD) {
 				if (kn_val < 0) {
@@ -390,8 +390,11 @@ obrot:
 				else if (param < 1) param = 1;
 			} else if (menu_pos == MENU_SET_LCD) {
 				param += kn_val;
-				if (param > 4) param = 4;
+				if (param > 3) param = 3;
 				else if (param < 0) param = 0;
+				lcd_kontrast = param;
+				//eeprom_update_block (&lcd_kontrast, (void *)EEPROM_KONTRAST, 1);
+				ustaw_kontrast ();
 			} else if (menu_pos == MENU_SET_HOUR) {//godziny
 				if (kn_val < 0) {
 					param -= ((param & 0x0f) == 0)? 7:1;
@@ -403,6 +406,7 @@ obrot:
 					if (param > 0x23) param = 0;
 				}
 			} else if (menu_pos == MENU_SET_MIN) {//minuty
+				menu_del = MAX_MENU_INI;
 				if (kn_val < 0) {
 					param -= ((param & 0x0f) == 0)? 7:1;
 					param -= ((param & 0xf0) == 0xf0)? 0x60:0;
